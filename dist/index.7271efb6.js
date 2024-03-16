@@ -5745,7 +5745,7 @@ var _hungryNitesLogo4PngDefault = parcelHelpers.interopDefault(_hungryNitesLogo4
 const Navbar = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "flex items-center bg-[#FEFDB8] shadow-lg sticky top-0",
+            className: "flex items-center bg-[#FEFDB8] shadow-lg sticky top-0 z-10",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     alt: "Logo",
@@ -6044,7 +6044,7 @@ var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 /*---------------------------------------------Restaurant Card-------------------------- */ const RestaurantCard = ({ cloudinaryImageId, name, cuisines, area, lastMileTravelString, locality, avgRating, costForTwo, sla })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "w-[250px]  m-5 rounded-lg shadow-2xl border-0.5 border-gray-10 overflow-hidden hover:scale-95 cursor-pointer",
+        className: "w-[250px] m-5 rounded-lg shadow-2xl border-0.5 border-gray-10 overflow-hidden hover:scale-95 cursor-pointer",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "rounded-3xl p-3 h-[200px] w-full",
@@ -6177,7 +6177,7 @@ const Body = ()=>{
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex flex-wrap justify-center m-2 ",
+                className: "flex flex-wrap justify-center -z-10",
                 children: filteredRestaurants.map((cur_restaurant, index)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "https://www.google.com",
@@ -6343,7 +6343,7 @@ parcelHelpers.export(exports, "swiggy_api_url", ()=>swiggy_api_url);
 parcelHelpers.export(exports, "img_cdn_url", ()=>img_cdn_url);
 parcelHelpers.export(exports, "swiggy_restaurant_api_url_part1", ()=>swiggy_restaurant_api_url_part1);
 parcelHelpers.export(exports, "swiggy_restaurant_api_url_part2", ()=>swiggy_restaurant_api_url_part2);
-const swiggy_api_url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.32750&lng=78.03250&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+const swiggy_api_url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true";
 const img_cdn_url = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 const swiggy_restaurant_api_url_part1 = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=";
 const swiggy_restaurant_api_url_part2 = "30669&catalog_qa=undefined&submitAction=ENTER";

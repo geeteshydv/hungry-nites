@@ -15,7 +15,7 @@ const RestaurantCard = ({
   sla,
 }) => {
   return (
-    <div className="w-[250px]  m-5 rounded-lg shadow-2xl border-0.5 border-gray-10 overflow-hidden hover:scale-95 cursor-pointer">
+    <div className="w-[250px] m-5 rounded-lg shadow-2xl border-0.5 border-gray-10 overflow-hidden hover:scale-95 cursor-pointer">
       <img
         className="rounded-3xl p-3 h-[200px] w-full"
         src={img_cdn_url + cloudinaryImageId}
@@ -92,7 +92,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="flex flex-wrap justify-center m-2 ">
+        <div className="flex flex-wrap justify-center -z-10">
           {filteredRestaurants.map((cur_restaurant, index) => {
             return (
               <Link to="https://www.google.com" target="_blank">

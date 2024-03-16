@@ -259,12 +259,24 @@ img, video {
   right: 0;
 }
 
+.top-0 {
+  top: 0;
+}
+
 .top-7 {
   top: 1.75rem;
 }
 
-.top-0 {
-  top: 0;
+.z-10 {
+  z-index: 10;
+}
+
+.-z-10 {
+  z-index: -10;
+}
+
+.m-11 {
+  margin: 2.75rem;
 }
 
 .m-2 {
@@ -285,6 +297,20 @@ img, video {
 
 .m-6 {
   margin: 1.5rem;
+}
+
+.m-10 {
+  margin: 2.5rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .mb-3 {
@@ -353,10 +379,6 @@ img, video {
 
 .h-\[300px\] {
   height: 300px;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .w-20 {
@@ -522,6 +544,23 @@ img, video {
   padding: .75rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-7 {
+  padding: 1.75rem;
+}
+
+.p-28 {
+  padding: 7rem;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .pl-2 {
   padding-left: .5rem;
 }
@@ -583,12 +622,6 @@ img, video {
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px #00000040;
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 #0000000d;
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
