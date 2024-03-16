@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { swiggy_api_url, img_cdn_url } from "../utils/Config";
-
+import { Link } from "react-router-dom";
+/*---------------------------------------------Restaurant Card-------------------------- */
 const RestaurantCard = ({
   cloudinaryImageId,
   name,
@@ -16,7 +17,7 @@ const RestaurantCard = ({
   return (
     <div className="w-[250px]  m-5 rounded-lg shadow-2xl border-0.5 border-gray-10 overflow-hidden hover:scale-95 cursor-pointer">
       <img
-        className="rounded-3xl p-3"
+        className="rounded-3xl p-3 h-[200px] w-full"
         src={img_cdn_url + cloudinaryImageId}
         alt=""
       />
@@ -38,13 +39,27 @@ const RestaurantCard = ({
     </div>
   );
 };
+/*---------------------------------------------------------------------------------- */
 
+function filterRestaurant(allRestaurants, searchText) {
+  const filterDataa = allRestaurants.filter((restaurant) =>
+    restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+  return filterDataa;
+}
 const Body = () => {
-  const [data, setData] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+
+  /*-------------------------------- API-call -------------------------- */
   async function getdata() {
     const response = await fetch(swiggy_api_url);
     const json = await response.json();
-    setData(
+    setFilteredRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle.restaurants
+    );
+    setAllRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle.restaurants
     );
   }
@@ -52,15 +67,41 @@ const Body = () => {
     getdata();
   }, []);
 
-  if (data.length == 0) {
+  if (allRestaurants.length == 0) {
     return <Shimmer />;
   } else {
     return (
-      <div className="flex flex-wrap justify-center m-2 ">
-        {data.map((cur_restaurant, index) => {
-          return <RestaurantCard {...cur_restaurant.info} key={index} />;
-        })}
-      </div>
+      <>
+        <div className="flex justify-center h-12 m-6">
+          <input
+            className="pl-[14px] w-[300px] rounded-l-lg  border border-black"
+            type="text"
+            placeholder="Search for restaurants and food...."
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="h-12 bg-green-500 w-[60px] rounded-r-lg text-sm"
+            onClick={() => {
+              const data = filterRestaurant(allRestaurants, searchText);
+              setFilteredRestaurants(data);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <div className="flex flex-wrap justify-center m-2 ">
+          {filteredRestaurants.map((cur_restaurant, index) => {
+            return (
+              <Link to="https://www.google.com" target="_blank">
+                <RestaurantCard {...cur_restaurant.info} key={index} />
+              </Link>
+            );
+          })}
+        </div>
+      </>
     );
   }
 };
