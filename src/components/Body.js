@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { swiggy_api_url, img_cdn_url } from "../utils/Config";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 /*---------------------------------------------Restaurant Card-------------------------- */
 const RestaurantCard = ({
   cloudinaryImageId,
@@ -51,7 +51,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
-
+  const { id } = useParams();
   /*-------------------------------- API-call -------------------------- */
   async function getdata() {
     const response = await fetch(swiggy_api_url);
@@ -95,7 +95,7 @@ const Body = () => {
         <div className="flex flex-wrap justify-center -z-10">
           {filteredRestaurants.map((cur_restaurant, index) => {
             return (
-              <Link to="https://www.google.com" target="_blank">
+              <Link to={cur_restaurant.info.id}>
                 <RestaurantCard {...cur_restaurant.info} key={index} />
               </Link>
             );
