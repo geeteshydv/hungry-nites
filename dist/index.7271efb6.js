@@ -34501,59 +34501,140 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _config = require("../utils/Config");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-const RestaurantMenuList = ({ cloudinaryImageId, name })=>{
+const RestaurantMenuList = ({ imageId, name, id })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: name
-            }, void 0, false, {
-                fileName: "src/components/RestaurantMenu.js",
-                lineNumber: 12,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: (0, _config.img_cdn_url) + cloudinaryImageId,
-                alt: ""
-            }, void 0, false, {
-                fileName: "src/components/RestaurantMenu.js",
-                lineNumber: 13,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true);
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: name
+                }, void 0, false, {
+                    fileName: "src/components/RestaurantMenu.js",
+                    lineNumber: 13,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: (0, _config.img_cdn_url) + imageId,
+                    alt: "failed",
+                    className: "h-[200px] w-[300px]"
+                }, void 0, false, {
+                    fileName: "src/components/RestaurantMenu.js",
+                    lineNumber: 14,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/RestaurantMenu.js",
+            lineNumber: 12,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false);
 };
 _c = RestaurantMenuList;
 const RestaurantMenu = ()=>{
     _s();
     const [menuData, setMenuData] = (0, _react.useState)([]);
+    const [restaurantInfo, setRestaurantInfo] = (0, _react.useState)([]);
     const { id } = (0, _reactRouterDom.useParams)();
     console.log(id);
     async function getMenuData() {
         const response = await fetch((0, _config.swiggy_restaurant_api_url_part1) + id + (0, _config.swiggy_restaurant_api_url_part2));
         const json = await response.json();
-        console.log(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
-        setMenuData(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
+        // console.log(json?.data?.cards[2]?.card?.card?.info);
+        setRestaurantInfo(json?.data?.cards[2]?.card?.card?.info);
+        setMenuData(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+        console.log(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
     }
     (0, _react.useEffect)(()=>{
         getMenuData();
     }, []);
-    if (!menuData) return null;
+    if (!restaurantInfo || !menuData) return null;
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: menuData.map((cur_restaurant, index)=>{
-            return /*#__PURE__*/ (0, _react.createElement)(RestaurantMenuList, {
-                ...cur_restaurant.card.info,
-                key: index,
-                __source: {
-                    fileName: "src/components/RestaurantMenu.js",
-                    lineNumber: 45,
-                    columnNumber: 13
-                },
-                __self: undefined
-            });
-        })
-    }, void 0, false);
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "bg-[rgb(23,23,23)] h-[200px] text-white flex ",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        src: (0, _config.img_cdn_url) + restaurantInfo?.cloudinaryImageId,
+                        alt: restaurantInfo?.name,
+                        className: "h-[200px] w-[250px] ml-[250px] p-3 rounded-2xl"
+                    }, void 0, false, {
+                        fileName: "src/components/RestaurantMenu.js",
+                        lineNumber: 53,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "ml-10",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "lg:text-4xl  pt-10 md:text-2xl",
+                                children: restaurantInfo.name
+                            }, void 0, false, {
+                                fileName: "src/components/RestaurantMenu.js",
+                                lineNumber: 59,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-gray-400 mr-14 pt-2 md:text-xs lg:text-sm",
+                                children: restaurantInfo?.cuisines ? restaurantInfo.cuisines.join(", ") : ""
+                            }, void 0, false, {
+                                fileName: "src/components/RestaurantMenu.js",
+                                lineNumber: 62,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: restaurantInfo?.costForTwoMessage
+                            }, void 0, false, {
+                                fileName: "src/components/RestaurantMenu.js",
+                                lineNumber: 67,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: restaurantInfo?.avgRating
+                            }, void 0, false, {
+                                fileName: "src/components/RestaurantMenu.js",
+                                lineNumber: 68,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    " ",
+                                    restaurantInfo?.sla?.minDeliveryTime + " mins"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/RestaurantMenu.js",
+                                lineNumber: 69,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/RestaurantMenu.js",
+                        lineNumber: 58,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/RestaurantMenu.js",
+                lineNumber: 52,
+                columnNumber: 9
+            }, undefined),
+            menuData.map((cur_restaurant, index)=>{
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    children: /*#__PURE__*/ (0, _react.createElement)(RestaurantMenuList, {
+                        ...cur_restaurant.card.info,
+                        key: index,
+                        __source: {
+                            fileName: "src/components/RestaurantMenu.js",
+                            lineNumber: 75,
+                            columnNumber: 15
+                        },
+                        __self: undefined
+                    })
+                }, void 0, false);
+            })
+        ]
+    }, void 0, true);
 };
-_s(RestaurantMenu, "AMn0Ey9K3IQrK0Mu95y0osQAKIk=", false, function() {
+_s(RestaurantMenu, "CYKVFEfCZcXylrtNi91eh8MMZb0=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
