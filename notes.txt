@@ -1,0 +1,11 @@
+1. lifting state up
+2. redux toolkit - steps
+    2.1 install @reduxjs/toolkit
+    2.2 install react-redux
+    2.3 build store
+    2.4 connect store with app
+    2.5 create slice
+    2.6 dispatch an action - useDispatchAction
+    2.7 useSelector
+3.
+4.

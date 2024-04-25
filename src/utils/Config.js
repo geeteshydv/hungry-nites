@@ -8,3 +8,5 @@ export const swiggy_restaurant_api_url_part1 =
 
 export const swiggy_restaurant_api_url_part2 =
   "&catalog_qa=undefined&submitAction=ENTER";
+export const MENU_ITEM_TYPE_KEY =
+  "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
