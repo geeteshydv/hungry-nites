@@ -7,6 +7,8 @@ import Footer from "./components/Footer.js";
 import Cart from "./components/Cart.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
+import About from "./components/About.js";
+import Login from "./components/Login.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/AppStore.js";
@@ -40,6 +42,14 @@ const Router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
